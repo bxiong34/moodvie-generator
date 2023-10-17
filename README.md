@@ -12,3 +12,5 @@ THEN I am presented with a series of movie choices
 WHEN I log a movie
 THEN it is added to my watchlist
 
+
+This product uses the TMDB API but is not endorsed or certified by TMDB
