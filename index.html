@@ -9,34 +9,44 @@
 </head>
 
 <body>
-    <div class="container">
-        <h2>Mood list:</h2>
-        <p>Answer the following questions that best describe your emotions:</p>
+    <div class="all-container">
+        <div class="container">
+            <div class="watchlist">
+                <h3>Watchlist</h3>
+            </div>
 
-        <label for="question1">What tipe of MOOD are you feeling today?</label>
-        <select id="question1">
-            <option value="Action">Exciting, Adrenaline-Pumping, Intense</option>
-            <option value="Adventure">Thrilling, Epic, Brave</option>
-            <option value="Comedy">Humorous, Light-hearted, Playful</option>
-            <option value="Drama">Magical, Enchanting, Otherworldly</option>
-            <option value="Fantasy">Scary, Terrifying, Chilling</option>
-            <option value="Horror">Intriguing, Puzzling, Suspenseful</option>
-            <option value="Romance">Heartwarming, Passionate, Tender</option>
-            <option value="Science Fiction">Futuristic, Imaginative, Mind-bending</option>
-            <option value="Sports">Energetic, Competitive, Inspiring</option>
-            <option value="Thriller">Suspenseful, Nerve-wracking, Unpredictable</option>
-            <option value="Western">Rustic, Adventurous, Wild West-inspired</option>
-        </select>
-        <button id="submitBtn">Submit</button>
+            <div class="question">
+                <h2>Mood list:</h2>
+                <p>Answer the following questions that best describe your emotions:</p>
+                <label for="question1">What type of MOOD are you feeling today?</label>
+                <select id="question1">
+                    <option value="Action">Exciting, Adrenaline-Pumping, Intense</option>
+                    <option value="Adventure">Thrilling, Epic, Brave</option>
+                    <option value="Comedy">Humorous, Light-hearted, Playful</option>
+                    <option value="Drama">Magical, Enchanting, Otherworldly</option>
+                    <option value="Fantasy">Scary, Terrifying, Chilling</option>
+                    <option value="Horror">Intriguing, Puzzling, Suspenseful</option>
+                    <option value="Romance">Heartwarming, Passionate, Tender</option>
+                    <option value="Science Fiction">Futuristic, Imaginative, Mind-bending</option>
+                    <option value="Sports">Energetic, Competitive, Inspiring</option>
+                    <option value="Thriller">Suspenseful, Nerve-wracking, Unpredictable</option>
+                    <option value="Western">Rustic, Adventurous, Wild West-inspired</option>
+                </select>
+                <br>
+                <button id="submitBtn">Submit</button>
+                <h3>Movies Based on Your Mood:</h3>
+                <ul id="moviesList"></ul>
+            </div>
+            
+            <div class="popularmovies">
+                <h3>Popular Movies:</h3>
+                <ul id="popularMoviesList">Popular Movies:</ul>
+                <button id="showAllBtn" class="hidden">Show All</button>
+            </div>
+        </div>
 
-        <h3>Movies Based on Your Mood:</h3>
-        <ul id="moviesList"></ul>
-
-        <h3>Popular Movies:</h3>
-        <ul id="popularMoviesList"></ul>
-        <button id="showAllBtn" class="hidden">Show All</button>
+        <!-- <div class="footer">© 2023 "team-name". All Rights Reserved.</div> -->
     </div>
-
     <script src="/assets/js/script.js"></script>
 </body>
 
