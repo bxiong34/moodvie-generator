@@ -57,11 +57,8 @@ document.addEventListener('DOMContentLoaded', function() {
             movieImage.alt = movie.title;
             listItem.appendChild(movieImage);
     
-            var movieTitle = document.createElement('span');
-            movieTitle.textContent = movie.title;
-            listItem.appendChild(movieTitle);
-    
             moviesList.appendChild(listItem);
+    
         });
     }
 
@@ -84,31 +81,27 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     
-function displayPopularMovies(movies) {
-    popularMoviesList.innerHTML = ''; // Clear previous popular movie list
-
-    // Display only the first 5 movies
-    for (var i = 0; i < 5; i++) {
-        if (movies[i]) {
-            var listItem = document.createElement('li');
-            var movieImage = document.createElement('img');
-            movieImage.src = `https://image.tmdb.org/t/p/w200${movies[i].poster_path}`;
-            movieImage.alt = movies[i].title;
-            listItem.appendChild(movieImage);
-
-            var movieTitle = document.createElement('span');
-            movieTitle.textContent = movies[i].title;
-            listItem.appendChild(movieTitle);
-
-            popularMoviesList.appendChild(listItem);
+    function displayPopularMovies(movies) {
+        popularMoviesList.innerHTML = ''; // Clear previous popular movie list
+    
+        // Display only the first 5 movies
+        for (var i = 0; i < 5; i++) {
+            if (movies[i]) {
+                var listItem = document.createElement('li');
+                var movieImage = document.createElement('img');
+                movieImage.src = `https://image.tmdb.org/t/p/w200${movies[i].poster_path}`;
+                movieImage.alt = movies[i].title;
+                listItem.appendChild(movieImage);
+    
+                popularMoviesList.appendChild(listItem);
+            }
+        }
+    
+        // If there are more than 5 movies, show the "Show All" button
+        if (movies.length > 5) {
+            showAllBtn.classList.remove('hidden');
         }
     }
-
-    // If there are more than 5 movies, show the "Show All" button
-    if (movies.length > 5) {
-        showAllBtn.classList.remove('hidden');
-    }
-}
 
 
     function displayAllPopularMovies() {
