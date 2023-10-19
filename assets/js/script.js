@@ -2,7 +2,8 @@ document.addEventListener('DOMContentLoaded', function() {
     var moodDropdown = document.getElementById('question1');
     var submitBtn = document.getElementById('submitBtn');
     var moviesList = document.getElementById('moviesList');
-    
+    var popularMoviesList = document.getElementById('popularMoviesList');
+
     // Genre IDs corresponding to mood options
     var genreMappings = {
         'Action': 28,
@@ -48,13 +49,89 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function displayMovies(movies) {
         moviesList.innerHTML = ''; // Clear previous movie list
-
+    
         movies.forEach(function(movie) {
             var listItem = document.createElement('li');
-            listItem.textContent = movie.title;
+            var movieImage = document.createElement('img');
+            movieImage.src = `https://image.tmdb.org/t/p/w200${movie.poster_path}`;
+            movieImage.alt = movie.title;
+            listItem.appendChild(movieImage);
+    
+            var movieTitle = document.createElement('span');
+            movieTitle.textContent = movie.title;
+            listItem.appendChild(movieTitle);
+    
             moviesList.appendChild(listItem);
         });
     }
+
+    function fetchPopularMovies() {
+        const popularMoviesEndpoint = 'https://api.themoviedb.org/3/movie/popular';
+
+        const popularMovies = {
+            method: 'GET',
+            headers: {
+                accept: 'application/json',
+                Authorization: `Bearer ${accessToken}`,
+            },
+        };
+
+        // Fetch popular movies
+        fetch(`${popularMoviesEndpoint}?api_key=${apiKey}`, popularMovies)
+            .then(response => response.json())
+            .then(data => displayPopularMovies(data.results))
+            .catch(error => console.error('Error:', error));
+    }
+
+    
+function displayPopularMovies(movies) {
+    popularMoviesList.innerHTML = ''; // Clear previous popular movie list
+
+    // Display only the first 5 movies
+    for (var i = 0; i < 5; i++) {
+        if (movies[i]) {
+            var listItem = document.createElement('li');
+            var movieImage = document.createElement('img');
+            movieImage.src = `https://image.tmdb.org/t/p/w200${movies[i].poster_path}`;
+            movieImage.alt = movies[i].title;
+            listItem.appendChild(movieImage);
+
+            var movieTitle = document.createElement('span');
+            movieTitle.textContent = movies[i].title;
+            listItem.appendChild(movieTitle);
+
+            popularMoviesList.appendChild(listItem);
+        }
+    }
+
+    // If there are more than 5 movies, show the "Show All" button
+    if (movies.length > 5) {
+        showAllBtn.classList.remove('hidden');
+    }
+}
+
+
+    function displayAllPopularMovies() {
+        popularMoviesList.innerHTML = ''; // Clear previous popular movie list
+
+        // Display all popular movies
+        movies.forEach(function(movie) {
+            var listItem = document.createElement('li');
+            listItem.textContent = movie.title;
+            popularMoviesList.appendChild(listItem);
+        });
+    }
+
+    // Call the fetchPopularMovies function when the page loads to display popular movies
+    fetchPopularMovies();
+
+    // Show all popular movies when the "Show All" button is clicked
+    showAllBtn.addEventListener('click', function() {
+        displayAllPopularMovies();
+        showAllBtn.classList.add('hidden');
+    });
 });
+
+
 
 
