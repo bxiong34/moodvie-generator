@@ -4,7 +4,7 @@ function addMovieToWatchlist(movie) {
     movieItem.className = "movie-item";
 
     const titleElement = document.createElement("li");
-    titleElement.textContent = movie.title + " " + movie.rating
+    titleElement.textContent = `${movie.title} ${movie.rating}`;
     movieItem.appendChild(titleElement); 
 
     container.appendChild(movieItem);
@@ -13,7 +13,7 @@ function addMovieToWatchlist(movie) {
 document.getElementById("addMovie").addEventListener("click", function() {
     console.log("button clicked");
     const movieName = document.getElementById("movieInput").value;
-    const rating = document.querySelectorAll(".starRating").length;
+    const rating = document.querySelectorAll(".star-rating .active").length;
 
     if (movieName) {
         var movies = JSON.parse(localStorage.getItem("movieList")) || [];
@@ -43,12 +43,11 @@ window.addEventListener("load", function() {
     }
 });
 
-var stars = document.querySelectorAll(".starrating a");
-
+var stars = document.querySelectorAll(".star-rating i")
 stars.forEach((item, index1) => {
     item.addEventListener("click", () => {
         stars.forEach((star, index2) => {
-            index1 >= index2 ? star.classList.add("active");
-        })
-    })
-})
+            index1 >= index2 ? star.classList.add("active") : star.classList.remove("active");
+        });
+    });
+});
