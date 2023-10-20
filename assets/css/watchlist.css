@@ -10,6 +10,7 @@ header {
 }
 
 .watchlist-main {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -41,4 +42,10 @@ header {
 .fa-star:hover {
     color: gold;
     transition-duration: .02s;
+}
+
+.watchlistbtn {
+    color: #FFFADD;
+    background-color: #FFCC70;
+    border: none;
 }
