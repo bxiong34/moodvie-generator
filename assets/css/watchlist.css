@@ -1,16 +1,15 @@
 body {
     background-color: #8ECDDD;
-    }
-    header {
+}
+header {
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: #22668D;
     display: flex;
     flex-direction: column;
     align-items: center;
-    }
-    
-    
-    .watchlist-main {
+}
+
+.watchlist-main {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -22,27 +21,24 @@ body {
     height: 250px;
     border-radius: 25px;
     margin-top: 45px;
-    }
-    
-    
-    .input-line {
+}
+
+.input-line {
     display: flex;
     justify-content: space-around;
-    flex-direction: row;
+    flex-direction: row; 
     margin-bottom: 50px;
-    }
-    
-    
-    .li {
+}
+
+.li {
     display: flex;
     justify-content: space-around;
-    }
-    
-    
-    .starrating {
-    color: ##22668D;
-    }
-    .starrating a.active {
+}
+
+.star-rating {
+    color: #22668D;
+}
+.fa-star:hover {
     color: gold;
-    }
-    
+    transition-duration: .02s;
+}
