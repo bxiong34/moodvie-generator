@@ -1,0 +1,48 @@
+body {
+    background-color: #8ECDDD;
+    }
+    header {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #22668D;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+    
+    
+    .watchlist-main {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFFADD;
+    padding: 25px;
+    border: 25px solid #FFFADD;
+    width: 500px;
+    height: 250px;
+    border-radius: 25px;
+    margin-top: 45px;
+    }
+    
+    
+    .input-line {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    margin-bottom: 50px;
+    }
+    
+    
+    .li {
+    display: flex;
+    justify-content: space-around;
+    }
+    
+    
+    .starrating {
+    color: ##22668D;
+    }
+    .starrating a.active {
+    color: gold;
+    }
+    
