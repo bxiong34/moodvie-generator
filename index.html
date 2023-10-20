@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>MoodVies</title>
 </head>
 
 <body>
-    <div class="all-container">
+    <div class="all-container"> 
         <div class="container">
             <div class="watchlist">
                 <h3>Watchlist</h3>
@@ -20,6 +20,7 @@
                 <p>Answer the following questions that best describe your emotions:</p>
                 <label for="question1">What type of MOOD are you feeling today?</label>
                 <select id="question1">
+                    <option value="" disabled selected>Select your mood</option>
                     <option value="Action">Exciting, Adrenaline-Pumping, Intense</option>
                     <option value="Adventure">Thrilling, Epic, Brave</option>
                     <option value="Comedy">Humorous, Light-hearted, Playful</option>
@@ -42,12 +43,16 @@
                 <h3>Popular Movies:</h3>
                 <ul id="popularMoviesList">Popular Movies:</ul>
                 <button id="showAllBtn" class="hidden">Show All</button>
+                <button id="showFiveBtn" class="hidden">Show 5</button>
+
+                
+
             </div>
         </div>
 
         <!-- <div class="footer">© 2023 "team-name". All Rights Reserved.</div> -->
     </div>
-    <script src="/assets/js/script.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 
 </html>

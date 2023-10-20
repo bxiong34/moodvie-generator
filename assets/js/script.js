@@ -3,6 +3,10 @@ document.addEventListener('DOMContentLoaded', function() {
     var submitBtn = document.getElementById('submitBtn');
     var moviesList = document.getElementById('moviesList');
     var popularMoviesList = document.getElementById('popularMoviesList');
+    var showAllBtn = document.getElementById('showAllBtn');
+    var showFiveBtn = document.getElementById('showFiveBtn'); // New button for displaying 5 movies
+
+    var popularMovies = []; // Declare the popularMovies array here
 
     // Genre IDs corresponding to mood options
     var genreMappings = {
@@ -47,25 +51,10 @@ document.addEventListener('DOMContentLoaded', function() {
             .catch(error => console.error('Error:', error));
     }
 
-    function displayMovies(movies) {
-        moviesList.innerHTML = ''; // Clear previous movie list
-    
-        movies.forEach(function(movie) {
-            var listItem = document.createElement('li');
-            var movieImage = document.createElement('img');
-            movieImage.src = `https://image.tmdb.org/t/p/w200${movie.poster_path}`;
-            movieImage.alt = movie.title;
-            listItem.appendChild(movieImage);
-    
-            moviesList.appendChild(listItem);
-    
-        });
-    }
-
     function fetchPopularMovies() {
         const popularMoviesEndpoint = 'https://api.themoviedb.org/3/movie/popular';
 
-        const popularMovies = {
+        const popularMoviesRequest = {
             method: 'GET',
             headers: {
                 accept: 'application/json',
@@ -74,45 +63,53 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         // Fetch popular movies
-        fetch(`${popularMoviesEndpoint}?api_key=${apiKey}`, popularMovies)
+        fetch(`${popularMoviesEndpoint}?api_key=${apiKey}`, popularMoviesRequest)
             .then(response => response.json())
-            .then(data => displayPopularMovies(data.results))
+            .then(data => {
+                popularMovies = data.results; // Populate the popularMovies array
+                displayPopularMovies(popularMovies, 5); // Display 5 movies initially
+            })
             .catch(error => console.error('Error:', error));
     }
 
+    function displayMovies(movies) {
+        moviesList.innerHTML = ''; // Clear previous movie list
     
-    function displayPopularMovies(movies) {
-        popularMoviesList.innerHTML = ''; // Clear previous popular movie list
+        // Get the selected mood from the dropdown
+        var selectedMood = moodDropdown.value;
     
-        // Display only the first 5 movies
-        for (var i = 0; i < 5; i++) {
-            if (movies[i]) {
+        // Display movie images only if a specific mood is selected (not the default option)
+        if (selectedMood !== "") {
+            movies.forEach(function(movie) {
                 var listItem = document.createElement('li');
+                var movieImage = document.createElement('img');
+                movieImage.src = `https://image.tmdb.org/t/p/w200${movie.poster_path}`;
+                movieImage.alt = movie.title;
+                listItem.appendChild(movieImage);
+                moviesList.appendChild(listItem);
+            });
+        }
+    }
+    
+    
+
+    function displayPopularMovies(movies, numToShow) {
+        popularMoviesList.innerHTML = ''; // Clear previous popular movie list
+
+        // Display the specified number of movies
+        for (var i = 0; i < numToShow; i++) {
+            if (movies[i]) {
                 var movieImage = document.createElement('img');
                 movieImage.src = `https://image.tmdb.org/t/p/w200${movies[i].poster_path}`;
                 movieImage.alt = movies[i].title;
-                listItem.appendChild(movieImage);
-    
-                popularMoviesList.appendChild(listItem);
+                popularMoviesList.appendChild(movieImage);
             }
         }
-    
-        // If there are more than 5 movies, show the "Show All" button
-        if (movies.length > 5) {
+
+        // If there are more movies than the specified number, show the "Show All" button
+        if (movies.length > numToShow) {
             showAllBtn.classList.remove('hidden');
         }
-    }
-
-
-    function displayAllPopularMovies() {
-        popularMoviesList.innerHTML = ''; // Clear previous popular movie list
-
-        // Display all popular movies
-        movies.forEach(function(movie) {
-            var listItem = document.createElement('li');
-            listItem.textContent = movie.title;
-            popularMoviesList.appendChild(listItem);
-        });
     }
 
     // Call the fetchPopularMovies function when the page loads to display popular movies
@@ -120,11 +117,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Show all popular movies when the "Show All" button is clicked
     showAllBtn.addEventListener('click', function() {
-        displayAllPopularMovies();
+        displayPopularMovies(popularMovies, popularMovies.length);
         showAllBtn.classList.add('hidden');
+        showFiveBtn.classList.remove('hidden'); // Show the "Show Five" button
     });
+
+    // Show 5 popular movies when the "Show Five" button is clicked
+    showFiveBtn.addEventListener('click', function() {
+        displayPopularMovies(popularMovies, 5);
+        showAllBtn.classList.remove('hidden'); // Show the "Show All" button
+        showFiveBtn.classList.add('hidden');
+    });
+
+    submitBtn.addEventListener('click', function() {
+        var selectedMood = moodDropdown.value;
+    
+        // Check if the default option is selected
+        if (selectedMood === "") {
+            alert('Please select your mood.'); // Display an alert message
+        } else {
+            fetchMovies(selectedMood); // Fetch movies for the selected mood
+        }
+    });
+    
 });
-
-
-
-
