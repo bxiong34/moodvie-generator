@@ -4,56 +4,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
     <title>MoodVies</title>
 </head>
 
 <body>
-    <div class="all-container"> 
-        <div class="container">
-            <div class="watchlist">
-                <h3>Watchlist</h3>
-            </div>
-
-            <div class="question">
-                <h2>Mood list:</h2>
-                <p>Answer the following questions that best describe your emotions:</p>
-                <label for="question1">What type of MOOD are you feeling today?</label>
-                <select id="question1">
-                    <option value="" disabled selected>Select your mood</option>
-                    <option value="Action">Exciting, Adrenaline-Pumping, Intense</option>
-                    <option value="Adventure">Thrilling, Epic, Brave</option>
-                    <option value="Comedy">Humorous, Light-hearted, Playful</option>
-                    <option value="Drama">Magical, Enchanting, Otherworldly</option>
-                    <option value="Fantasy">Scary, Terrifying, Chilling</option>
-                    <option value="Horror">Intriguing, Puzzling, Suspenseful</option>
-                    <option value="Romance">Heartwarming, Passionate, Tender</option>
-                    <option value="Science Fiction">Futuristic, Imaginative, Mind-bending</option>
-                    <option value="Sports">Energetic, Competitive, Inspiring</option>
-                    <option value="Thriller">Suspenseful, Nerve-wracking, Unpredictable</option>
-                    <option value="Western">Rustic, Adventurous, Wild West-inspired</option>
-                </select>
-                <br>
-                <button id="submitBtn">Submit</button>
-                <h3>Movies Based on Your Mood:</h3>
-                <ul id="moviesList"></ul>
-            </div>
-            
-            <div class="popularmovies">
-                <h3>Popular Movies:</h3>
-                <ul id="popularMoviesList">Popular Movies:</ul>
-                <button id="showAllBtn" class="hidden">Show All</button>
-                <button id="showFiveBtn" class="hidden">Show 5</button>
-
-                
-
+<!-- navbar -->
+        <div class="navbar-brand pt-6">
+            <a class="navbar-item is-dark">
+                <a href="https://www.themoviedb.org/?language=en-US">
+                    <img src="./assets/images/logo.png" alt="movie-icon" style="max-height: 80px" class="pl-6 pr-6">
+                </a>
+            </a>
+            <h1 class="title is-1 has-text-grey mt-3">Moodvie Generator</h1>
+            <a class="navbar-burger" id="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+            </a>
+        </div>
+        <!-- navbar items -->
+        <div class="navbar-menu mx-4" id="nav-links">
+            <div class="navbar-end">
+                <a class="navbar-item has-text-white" id="nav-home">Home</a>
+                <a class="navbar-item has-text-white" id="nav-popular">Popular Movies</a>
+                <a href="watchlist.html" class="navbar-item has-text-white">Watchlist</a>
             </div>
         </div>
 
-        <!-- <div class="footer">© 2023 "team-name". All Rights Reserved.</div> -->
-    </div>
-    <script src="./assets/js/script.js"></script>
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <!-- mood quesiton column -->
+                <div class="column is-8 is-active column-question py-6 px-4 my-2 mx-2">
+                    <div class="question">
+                        <label for="question1">What type of MOOD are you feeling today?</label>
+                        <select id="question1">
+                            <option value="" disabled selected>Select your mood</option>
+                            <option value="Action">Exciting, Adrenaline-Pumping, Intense</option>
+                            <option value="Adventure">Thrilling, Epic, Brave</option>
+                            <option value="Comedy">Humorous, Light-hearted, Playful</option>
+                            <option value="Drama">Magical, Enchanting, Otherworldly</option>
+                            <option value="Fantasy">Scary, Terrifying, Chilling</option>
+                            <option value="Horror">Intriguing, Puzzling, Suspenseful</option>
+                            <option value="Romance">Heartwarming, Passionate, Tender</option>
+                            <option value="Science Fiction">Futuristic, Imaginative, Mind-bending</option>
+                            <option value="Sports">Energetic, Competitive, Inspiring</option>
+                            <option value="Thriller">Suspenseful, Nerve-wracking, Unpredictable</option>
+                            <option value="Western">Rustic, Adventurous, Wild West-inspired</option>
+                        </select>
+                    </div>
+                        <div class="btn">
+                            <button id="submitBtn" class="has-text-white">Submit</button>
+                            <h3 class="title is-5 has-text-white">Movies Based on Your Mood:</h3>
+                            <ul id="moviesList"></ul>
+                        </div>
+                </div>
+                <!-- popular movies column -->
+                <div class="column is-8 is-hidden column-popularmovies py-6 px-4 my-2 mx-2">
+                    <div class="btn">
+                        <h3 class="title is-5">Popular Movies:</h3>
+                        <ul id="popularMoviesList"></ul>
+                        <button id="showAllBtn" class="hidden has-text-white">Show All</button>
+                        <button id="showFiveBtn" class="hidden has-text-white">Show 5</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- footer -->
+        <footer class="bottom">
+            <div class="content has-text-centered mt-6">
+                <p class="footerbox">
+                © 2023 Moodvie Generator by <strong class="has-text-grey">MOODERS</strong>. The source code for
+                <a href="https://www.themoviedb.org/?language=en-US">Moodvie Generator</a>.
+                </p>
+            </div>
+        </footer> 
+    </section>
+    <script src="/assets/js/script.js"></script>
 </body>
 
 </html>
-

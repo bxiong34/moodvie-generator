@@ -5,17 +5,16 @@ function addMovieToWatchlist(movie) {
 
     const titleElement = document.createElement("li");
     titleElement.textContent = `${movie.title} - ${movie.rating} stars`;
-    movieItem.appendChild(titleElement); 
+    movieItem.appendChild(titleElement);
 
     container.appendChild(movieItem);
 }
 
 document.getElementById("addMovie").addEventListener("click", function() {
-    console.log("button clicked");
     const movieName = document.getElementById("movieInput").value;
     const rating = document.querySelectorAll(".star-rating .active").length;
 
-    if (movieName) {
+    if (movieName && rating > 0) {
         var movies = JSON.parse(localStorage.getItem("movieList")) || [];
 
         const movie = {
@@ -27,11 +26,40 @@ document.getElementById("addMovie").addEventListener("click", function() {
         localStorage.setItem("movieList", JSON.stringify(movies));
         document.getElementById("movieInput").value = "";
 
-        alert("Moodvie has been added to your watchlist!");
+        alert("Movie has been added to your watchlist!");
 
         addMovieToWatchlist(movie);
     } else {
-        alert("Enter a movie title");
+        alert("Enter a movie title and select a rating");
+    }
+});
+
+const stars = document.querySelectorAll(".star-rating i");
+
+stars.forEach((star, index) => {
+    star.addEventListener("mouseover", () => {
+        for (let i = 0; i <= index; i++) {
+            stars[i].classList.add("active");
+        }
+        for (let i = index + 1; i < stars.length; i++) {
+            stars[i].classList.remove("active");
+        }
+    });
+
+    star.addEventListener("click", () => {
+        for (let i = 0; i <= index; i++) {
+            stars[i].classList.add("active");
+        }
+        for (let i = index + 1; i < stars.length; i++) {
+            stars[i].classList.remove("active");
+        }
+    });
+});
+
+document.querySelector(".star-rating").addEventListener("mouseleave", () => {
+    const rating = document.querySelectorAll(".star-rating .active").length;
+    if (rating === 0) {
+        stars.forEach(star => star.classList.remove("active"));
     }
 });
 
@@ -42,18 +70,3 @@ window.addEventListener("load", function() {
         addMovieToWatchlist(movie);
     }
 });
-
-var stars = document.querySelectorAll(".star-rating i")
-stars.forEach((item, index1) => {
-    item.addEventListener("click", () => {
-        stars.forEach((star, index2) => {
-            index1 >= index2 ? star.classList.add("active")  : star.classList.remove("active");
-        });
-    });
-});
-
-
-
-
-    
-    

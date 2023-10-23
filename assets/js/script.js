@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     submitBtn.addEventListener('click', function() {
         var selectedMood = moodDropdown.value;
-    
+        
         // Check if the default option is selected
         if (selectedMood === "") {
             alert('Please select your mood.'); // Display an alert message
@@ -140,4 +140,30 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
+    //Opens up navbar
+    const burgerIcon = document.querySelector("#burger");
+    const navbarMenu = document.querySelector("#nav-links");
+
+    burgerIcon.addEventListener("click", function() {
+    navbarMenu.classList.toggle("is-active");
+    });
+
+
+    const navPopular = document.querySelector("#nav-popular");
+    const navHome = document.querySelector("#nav-home")
+    const columnPopular = document.querySelector(".column-popularmovies");
+    const columnQuestion = document.querySelector(".column-question")
+
+    // Shows popular movies column when "Popular Movies" nav-item is clicked on and hides question column
+    navPopular.addEventListener("click", function() {
+        columnQuestion.classList.add("hidden")
+        columnPopular.classList.remove("is-hidden");
+    })
+
+    // Shows question column when "Home" nav-item is clicked on and hides popular movies column
+    navHome.addEventListener("click", function() {
+        columnQuestion.classList.remove("hidden")
+        columnPopular.classList.add("is-hidden");
+    })
+
 });
