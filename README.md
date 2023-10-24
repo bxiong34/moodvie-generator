@@ -4,7 +4,7 @@ Moodvie Generator is a delightful web application that helps you discover movies
 
 ## Table of Contents
 - [Features](#features)
-- [Screenshots](#Screenshots)
+- [Demo](#demo)
 - [How to Use](#how-to-use)
 - [Technologies Used](#technologies-used)
 - [Contributions](#contributions)
@@ -22,7 +22,7 @@ Moodvie Generator is a delightful web application that helps you discover movies
 
 ## Demo
 Homepage:![Alt text](assets/images/home.gif)
-Popular Movies: 
+Popular Movies:![Popular Movies](/assets/images/PopularMoviesgif.gif)
 Watchlist: ![Alt text](assets/images/watchlist.gif)
 
 ## How to Use
