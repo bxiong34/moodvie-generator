@@ -64,11 +64,11 @@ p {
 }
 
 .watchlistbtn {
-    background-color: var(--second);
+    background-color: var(--third);
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 5px;
+    padding: 8px;
     font-size: 15px;
     font-weight: bold;
     margin-top: 10px;
@@ -96,9 +96,12 @@ p {
 
 .footer {
     position:fixed;
-   left:50%;
-   bottom:5px;
+   left: 50%;
+   bottom: 20px;
+   padding: 10px;
+   border-radius: 5px;
    text-decoration: none;
    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
    color: white;
+   background-color: var(--second);
 }
