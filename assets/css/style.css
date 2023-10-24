@@ -1,5 +1,5 @@
 :root {
-    --first: #323232;
+    --first: #191970;
     --second: #29435C;
     --third: #000000;
     --fourth: white;
@@ -71,6 +71,11 @@ p {
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
+#moviesListTitle {
+    display: none;
+}
+
 
 /* popular movie list */
 #popularMoviesList {

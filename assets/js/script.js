@@ -88,8 +88,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 listItem.appendChild(movieImage);
                 moviesList.appendChild(listItem);
             });
+    
+            // Show the movies list title
+            document.getElementById('moviesListTitle').style.display = 'block';
+        } else {
+            // Hide the movies list title if no mood is selected
+            document.getElementById('moviesListTitle').style.display = 'none';
         }
     }
+    
     
     
 
