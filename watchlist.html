@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="assets/css/watchlist.css">
   </head>
   <body>
-
+<!-- main watchlist header -->
     <header class="watchlist-header"> 
         <h1 class="watchlist-title">Welcome to Your Moodvie Watchlist</h1>
         <p></p>Log and Rate your recent watched movies for your friends!</p> 
         <p class="decoration">˗ˏˋ 🌟 ˎˊ˗</p>
     </header>
 
+<!-- main div which holds the watchlist -->
     <div class="watchlist-main">
             <div class="input-line">
                 <input id="movieInput" type="textbox" placeholder="enter a movie title">
@@ -25,15 +26,12 @@
                   <i class="fas fa-star"></i>
                   <i class="fas fa-star"></i>
               </div>
-              
             <button class="watchlistbtn" id="addMovie">Add Movie</button>
             </div>
-            <div class="watchlist-container">
-                
-            </div>
+            <div class="watchlist-container"></div>
         </div>
 
-        <!-- modal -->
+<!-- modal -->
         <div class="modal" id="movieModal" style="display: none;">
           <div class="modal-background"></div>
           <div class="modal-content has-background-white px-3 py-3">
@@ -41,8 +39,9 @@
           </div>
         </div>
 
+  <!-- javascript link and star-rating style link -->
   <script src="assets/js/watchlist.js"></script>
-    <script src="https://kit.fontawesome.com/6dda9c8f86.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6dda9c8f86.js" crossorigin="anonymous"></script>
   </body>
 
   <footer>
