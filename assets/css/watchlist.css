@@ -1,3 +1,4 @@
+/* color key */
 :root {
     --first: #191970;
     --second: #29435C;
@@ -5,11 +6,13 @@
     --fourth: white;
 }
 
+/* this determines the background and font color throughout the page */ 
 html {
     background-color: var(--third);
     color: white;
 }
 
+/* header styles to center, for color, and font */
 header {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: var(--fourth);
@@ -18,6 +21,7 @@ header {
     align-items: center;
 }
 
+/* this determines the styling for the main container on the page */
 .watchlist-main {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     position: fixed;
@@ -33,6 +37,7 @@ header {
     margin-top: 45px;
 }
 
+/* makes the input box, stars and enter button in a row and spaced apart */ 
 .input-line {
     display: flex;
     justify-content: space-around;
@@ -40,20 +45,12 @@ header {
     margin-bottom: 50px;
 }
 
+/* this is the color for the non-chosen stars */
 .star-rating {
     color: gray;
 }
 
-li {
-    display: flex;
-    justify-content: space-around;
-}
-
-p {
-    display: flex;
-    justify-content: center;
-}
-
+/* this is the color of the stars once chosen */
 .star-rating .fa-star.active {
     color: gold;
 }
@@ -63,6 +60,27 @@ p {
     transition-duration: .02s;
 }
 
+/* determines how the watchlist will be formatted in the container */
+li {
+    display: flex;
+    justify-content: space-around;
+}
+
+/* centers the star on the banner */
+p {
+    display: flex;
+    justify-content: center;
+}
+
+/* this determines the styling for the star on the banner */
+.decoration {
+    align-items: center;
+    background-color: var(--second);
+    width: 100%;
+    height: 50px;
+}
+
+/* determines the styling for the button */
 .watchlistbtn {
     background-color: var(--third);
     color: white;
@@ -74,6 +92,7 @@ p {
     margin-top: 10px;
 }
 
+/* this determines the positioning and color of the modal popup */
 .modal {
     position:fixed;
     top: 32%;
@@ -82,22 +101,16 @@ p {
 }
 
 .modal-title {
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
    display: flex;
    justify-content: center;
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.decoration {
-    align-items: center;
-    background-color: var(--second);
-    width: 100%;
-    height: 50px;
-}
-
+/* this determines the position and styling for the footer */
 .footer {
-    position:fixed;
    left: 50%;
    bottom: 20px;
+   position: fixed;
    padding: 10px;
    border-radius: 5px;
    text-decoration: none;
