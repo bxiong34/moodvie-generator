@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Moodvie Watchlist</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="assets/css/watchlist.css">
   </head>
   <body>
@@ -35,14 +34,15 @@
         </div>
 
         <!-- modal -->
-        <div class="modal is-centered is-active">
+        <div class="modal" id="movieModal" style="display: none;">
           <div class="modal-background"></div>
           <div class="modal-content has-background-white px-3 py-3">
-            <h3 class="modal-title">Movie has been added to your watchlist!</h3>
+            <h3 class="modal-title" id="modalText">Movie has been added to your watchlist!</h3>
           </div>
         </div>
-    
+
   <script src="assets/js/watchlist.js"></script>
     <script src="https://kit.fontawesome.com/6dda9c8f86.js" crossorigin="anonymous"></script>
   </body>
+
 </html>
