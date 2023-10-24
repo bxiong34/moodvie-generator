@@ -13,6 +13,9 @@ function addMovieToWatchlist(movie) {
 document.getElementById("addMovie").addEventListener("click", function() {
     const movieName = document.getElementById("movieInput").value;
     const rating = document.querySelectorAll(".star-rating .active").length;
+    const modal = document.querySelector(".modal");
+
+    modal.classList.add("is-active");
 
     if (movieName && rating > 0) {
         var movies = JSON.parse(localStorage.getItem("movieList")) || [];
@@ -26,13 +29,19 @@ document.getElementById("addMovie").addEventListener("click", function() {
         localStorage.setItem("movieList", JSON.stringify(movies));
         document.getElementById("movieInput").value = "";
 
-        alert("Movie has been added to your watchlist!");
-
         addMovieToWatchlist(movie);
     } else {
-        alert("Enter a movie title and select a rating");
+        showModal("Enter a movie title and select a rating");
     }
 });
+
+//click on background to exit out of the modal
+const modal = document.querySelector(".modal");
+const modalBg = document.querySelector(".modal-background");
+
+modalBg.addEventListener("click", function() {
+    modal.classList.remove("is-active")
+})
 
 const stars = document.querySelectorAll(".star-rating i");
 
