@@ -61,3 +61,15 @@ li {
     margin-top: 10px;
 }
 
+.modal {
+    position:fixed;
+    top: 32%;
+    left: 37%;
+    color:#22668D;
+}
+
+.modal-title {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   display: flex;
+   justify-content: center;
+}

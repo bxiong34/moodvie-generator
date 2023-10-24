@@ -15,8 +15,6 @@ document.getElementById("addMovie").addEventListener("click", function() {
     const rating = document.querySelectorAll(".star-rating .active").length;
     const modal = document.querySelector(".modal");
 
-    modal.classList.add("is-active");
-
     if (movieName && rating > 0) {
         var movies = JSON.parse(localStorage.getItem("movieList")) || [];
 
@@ -30,18 +28,22 @@ document.getElementById("addMovie").addEventListener("click", function() {
         document.getElementById("movieInput").value = "";
 
         addMovieToWatchlist(movie);
+        modal.style.display = "block";
     } else {
-        showModal("Enter a movie title and select a rating");
+        modal.style.display = "block";
     }
+
+    modal.addEventListener("click", function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+
+    setTimeout(function() {
+        modal.style.display = "none";
+    }, 1000);
 });
 
-//click on background to exit out of the modal
-const modal = document.querySelector(".modal");
-const modalBg = document.querySelector(".modal-background");
-
-modalBg.addEventListener("click", function() {
-    modal.classList.remove("is-active")
-})
 
 const stars = document.querySelectorAll(".star-rating i");
 
