@@ -20,11 +20,10 @@ Moodvie Generator is a delightful web application that helps you discover movies
 - **Instant Suggestions:** Get instant movie recommendations without the need for sign-ups or logins.
 - **Mobile-Friendly:** Access Moodvie Generator on your desktop, tablet, or smartphone for movie suggestions on the go.
 
-## Screenshots
-![Main Page](/assets/images/main-page.png)
-![Popular Movies](/assets/images/popularmovies.png)
-![watchlist](/assets/images/watchlist.png)
-
+## Demo
+Homepage:![Alt text](assets/images/home.gif)
+Popular Movies: 
+Watchlist: ![Alt text](assets/images/watchlist.gif)
 
 ## How to Use
 
