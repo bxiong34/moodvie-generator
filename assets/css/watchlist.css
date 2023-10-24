@@ -1,10 +1,18 @@
+:root {
+    --first: #323232;
+    --second: #29435C;
+    --third: #000000;
+    --fourth: white;
+}
+
 html {
-    background-color: #8ECDDD;
+    background-color: var(--third);
+    color: white;
 }
 
 header {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: #22668D;
+    color: gray;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,9 +24,9 @@ header {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #FFFADD;
+    background-color: var(--first);
     padding: 25px;
-    border: 25px solid #FFFADD;
+    border: 25px solid var(--first);
     width: 500px;
     height: 250px;
     border-radius: 25px;
@@ -33,7 +41,7 @@ header {
 }
 
 .star-rating {
-    color: #22668D;
+    color: gray;
 }
 
 li {
@@ -41,18 +49,23 @@ li {
     justify-content: space-around;
 }
 
+p {
+    display: flex;
+    justify-content: center;
+}
+
 .star-rating .fa-star.active {
-    color: #ffcc70;
+    color: gold;
 }
 
 .fa-star:hover {
-    color: #ffcc70;
+    color: gold;
     transition-duration: .02s;
 }
 
 .watchlistbtn {
-    background-color: #22668D;
-    color: #FFFADD;
+    background-color: var(--second);
+    color: white;
     border: none;
     border-radius: 5px;
     padding: 5px;
@@ -65,11 +78,18 @@ li {
     position:fixed;
     top: 32%;
     left: 37%;
-    color:#22668D;
+    color: gray;
 }
 
 .modal-title {
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
    display: flex;
    justify-content: center;
+}
+
+.decoration {
+    align-items: center;
+    background-color: var(--second);
+    width: 100%;
+    height: 50px;
 }
