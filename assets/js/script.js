@@ -139,9 +139,20 @@ document.addEventListener('DOMContentLoaded', function() {
     submitBtn.addEventListener('click', function() {
         var selectedMood = moodDropdown.value;
         
+        
         // Check if the default option is selected
         if (selectedMood === "") {
-            alert('Please select your mood.'); // Display an alert message
+            //
+            const modal = document.querySelector(".modal");
+            const modalBg = document.querySelector(".modal-background");
+
+            //modal for if no mood is selected
+            modal.classList.add("is-active");
+
+            //if background is clicked, modal disappears
+            modalBg.addEventListener("click", function() {
+                modal.classList.remove("is-active");
+            })
         } else {
             fetchMovies(selectedMood); // Fetch movies for the selected mood
         }
