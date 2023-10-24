@@ -31,7 +31,6 @@ document.getElementById("addMovie").addEventListener("click", function() {
         addMovieToWatchlist(movie);
     } else {
         alert("Enter a movie title and select a rating");
-
     }
 });
 
@@ -46,37 +45,6 @@ stars.forEach((star, index) => {
             stars[i].classList.remove("active");
         }
     });
-
-    star.addEventListener("click", () => {
-        for (let i = 0; i <= index; i++) {
-            stars[i].classList.add("active");
-        }
-        for (let i = index + 1; i < stars.length; i++) {
-            stars[i].classList.remove("active");
-        }
-    });
-});
-
-document.querySelector(".star-rating").addEventListener("mouseleave", () => {
-    const rating = document.querySelectorAll(".star-rating .active").length;
-    if (rating === 0) {
-        stars.forEach(star => star.classList.remove("active"));
-
-    }
-});
-
-const stars = document.querySelectorAll(".star-rating i");
-
-stars.forEach((star, index) => {
-    star.addEventListener("mouseover", () => {
-        for (let i = 0; i <= index; i++) {
-            stars[i].classList.add("active");
-        }
-        for (let i = index + 1; i < stars.length; i++) {
-            stars[i].classList.remove("active");
-        }
-    });
-
 
     star.addEventListener("click", () => {
         for (let i = 0; i <= index; i++) {
@@ -102,4 +70,5 @@ window.addEventListener("load", function() {
         addMovieToWatchlist(movie);
     }
 });
+
 
